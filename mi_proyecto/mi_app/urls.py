@@ -1,7 +1,7 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('', views.login_view, name='login'),  # Login en la raíz
-    path('home/', views.home, name='home'),    # Página protegida después de login
+    path('admin/', admin.site.urls),
+    path('', include('mi_app.urls')),  # Incluye las rutas de tu app
 ]
