@@ -1,69 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <style>
-    body {
-      background-color: #f1f1f1;
-      font-family: Arial, sans-serif;
-    }
-
-    .login-container {
-      width: 350px;
-      margin: 100px auto;
-      padding: 30px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    h2 {
-      text-align: center;
-      color: #333;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .error {
-      color: red;
-      text-align: center;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>Login - Viaje Seguro 🔥</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background: #222;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #00ff90;
+            width: 300px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            border: none;
+        }
+        button {
+            background-color: #00ff90;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #00cc73;
+        }
+        .error {
+            background: #ff4c4c;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        h2 {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <div class="login-container">
-    <h2>Iniciar Sesión</h2>
-    {% if error %}
-      <p class="error">{{ error }}</p>
-    {% endif %}
-    <form method="POST">
-      {% csrf_token %}
-      <input type="text" name="username" placeholder="Usuario" required>
-      <input type="password" name="password" placeholder="Contraseña" required>
-      <button type="submit">Entrar</button>
+    <form method="post" autocomplete="off">
+        <h2>Inicia sesión 🔥</h2>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        {% csrf_token %}
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required autofocus />
+        
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required />
+        
+        <button type="submit">Entrar</button>
     </form>
-  </div>
 </body>
 </html>
