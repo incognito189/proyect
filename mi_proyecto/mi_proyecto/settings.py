@@ -10,6 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sh',
+        'USER': 'admin',
+        'PASSWORD': 'e8ffe83a1253c9f52d281ee1d7f0efaa',
+        'HOST': 'sh.czzuy5ajumqx.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+    }
+}
+
+
+
 from pathlib import Path
 import os  # ← Añade esto junto a las otras importaciones
 from pathlib import Path
@@ -28,7 +41,7 @@ SECRET_KEY = 'django-insecure-nu8ud=u@8w+*93@)rrmzp3xo%r-8&#pj7*+zgkhc5qp47l9w6q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
