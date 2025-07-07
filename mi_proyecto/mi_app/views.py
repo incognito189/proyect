@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 def login_view(request):
     error = None
@@ -11,8 +12,12 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')  # Cambia 'home' por la url que quieras
+            return redirect('home')  # Redirige a la vista home
         else:
             error = "Usuario o contraseña incorrectos"
 
     return render(request, 'login.html', {'error': error})
+
+@login_required
+def home(request):
+    return render(request, 'index.html')  # Usa tu template index.html
