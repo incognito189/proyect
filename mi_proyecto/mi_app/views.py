@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-    return HttpResponse("Hola desde mi_app")
+def home(request):
+    return render(request, 'mi_app/home.html')
