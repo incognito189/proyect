@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 100px;
+        }
+    </style>
+</head>
+<body onclick="changeColor()">
+    <h1>Bienvenido a la página de inicio</h1>
+    <p>Haz clic en cualquier parte de la página para cambiar el color de fondo.</p>
+
+    <script>
+        const colors = ['#f9c74f', '#90be6d', '#f94144', '#577590', '#f3722c', '#43aa8b'];
+        let current = 0;
+
+        function changeColor() {
+            document.body.style.backgroundColor = colors[current];
+            current = (current + 1) % colors.length;
+        }
+    </script>
+</body>
+</html>
