@@ -20,6 +20,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mi_app.urls')),  # Tu app se maneja desde aquí
+    path('', include('mi_app.urls')),  # Incluye las rutas de tu app mi_app
 ]
 
