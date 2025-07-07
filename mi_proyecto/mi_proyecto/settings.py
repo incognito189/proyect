@@ -73,11 +73,15 @@ WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sh',  # o el nombre correcto de la base de datos
-        'USER': 'admin',
+        'NAME': 'sh',
+        'USER': 'admin',  # O el usuario específico que creaste
         'PASSWORD': 'kiralight133',
         'HOST': 'sh.czzuy5ajumqx.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        }
     }
 }
 
