@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
-def inicio(request):
+# Vista de login
+def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -10,18 +13,13 @@ def inicio(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponse(f'Bienvenido, {user.username}!')
+            return redirect('home')  # Redirige si login exitoso
         else:
-            return render(request, 'index.html', {'error': 'Usuario o contraseña incorrectos'})
+            return render(request, 'login.html', {'error': 'Usuario o contraseña incorrectos'})
 
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
-
-
-from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
-
+# Vista protegida del home (se ve después de iniciar sesión)
+@login_required
 def home(request):
-    return render(request, 'index.html')  # Renderiza el template
+    return render(request, 'index.html')  # Muestra página principal
