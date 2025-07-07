@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sh',
+        'NAME': 'inacap',
         'USER': 'admin',  # O el usuario específico que creaste
         'PASSWORD': 'kiralight133',
         'HOST': 'sh.czzuy5ajumqx.us-east-1.rds.amazonaws.com',
