@@ -73,13 +73,14 @@ WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sh',
+        'NAME': 'sh',  # o el nombre correcto de la base de datos
         'USER': 'admin',
         'PASSWORD': 'kiralight133',
         'HOST': 'sh.czzuy5ajumqx.us-east-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
