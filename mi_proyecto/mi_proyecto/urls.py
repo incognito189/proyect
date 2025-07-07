@@ -17,14 +17,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from mi_app import views   # IMPORTANTE: importa las vistas de tu app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mi_app.urls')),  # Incluye las URLs de tu app
+    path('', views.login_view, name='login'),  # Login en la raíz
+    path('home/', views.home, name='home'),    # Página protegida
 ]
 
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name='home'),  # Ruta para la página principal
-]
