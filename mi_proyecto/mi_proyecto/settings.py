@@ -10,27 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sh',
-        'USER': 'admin',
-        'PASSWORD': 'kiralight133',
-        'HOST': 'sh.czzuy5ajumqx.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
-    }
-}
-
-
-
 from pathlib import Path
-import os  # ← Añade esto junto a las otras importaciones
-from pathlib import Path
-
+import os  # Añade esto junto a las otras importaciones
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -42,7 +26,6 @@ SECRET_KEY = 'django-insecure-nu8ud=u@8w+*93@)rrmzp3xo%r-8&#pj7*+zgkhc5qp47l9w6q
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -71,7 +54,7 @@ ROOT_URLCONF = 'mi_proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # ← Añade esta línea
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Añade esta línea
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,21 +68,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# Configuración para MySQL en AWS RDS
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sh',
+        'USER': 'admin',
+        'PASSWORD': 'kiralight133',
+        'HOST': 'sh.czzuy5ajumqx.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
-
 # Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -115,10 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -127,15 +106,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_URL = 'static/'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Página donde redirige si NO estás logueado
@@ -143,4 +117,3 @@ LOGIN_URL = '/'
 
 # Página donde redirige después del login exitoso
 LOGIN_REDIRECT_URL = '/home/'
-
