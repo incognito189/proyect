@@ -7,17 +7,14 @@ def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
             login(request, user)
-            return redirect('home')  # Redirige a la vista home
+            return redirect('home')
         else:
             error = "Usuario o contraseña incorrectos"
-
     return render(request, 'login.html', {'error': error})
 
 @login_required
 def home(request):
-    return render(request, 'index.html')  # Usa tu template index.html
+    return render(request, 'index.html')
