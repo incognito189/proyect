@@ -25,7 +25,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from mi_app import views  # Importa las vistas de tu app
+from mi_app import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.login_view, name='login'),  # Muestra primero el login
+    path('home/', views.home, name='home'),    # Muestra el home después del login
+]
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
